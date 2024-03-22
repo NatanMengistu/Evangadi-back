@@ -12,7 +12,11 @@ const authentMiddleware = async (req, res, next) => {
   console.log(authoHeader);
   console.log(token);
   try {
-    const { username, userid } = jwt.verify(token, process.env.JWT_SECRET);
+    const { username, userid } = jwt.verify(
+      token,
+      "Tw4Q7fdxPyiXBAg113Cq7T70UsCur57v"
+    );
+
     req.user = { username, userid };
     next();
   } catch (error) {
